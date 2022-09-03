@@ -43,3 +43,4 @@ jobs:
       with:
         push: true
         tags: user/app:latest
+        image: hyiik09/assignment3
