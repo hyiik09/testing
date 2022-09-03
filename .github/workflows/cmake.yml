@@ -41,5 +41,6 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v3
       with:
+        context: .
         push: true
-        tags: hyiik09/assignment3
+        tags: hyiik09/assignment3:latest, hyiik09/assignment3:${{ github.run_number }}
