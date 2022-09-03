@@ -23,6 +23,9 @@ jobs:
     - name: Use cmake
       run: cmake --version
       
+    - name: Checkout
+      uses: actions/checkout@v3
+      
     - name: Docker Build and Push Action
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
