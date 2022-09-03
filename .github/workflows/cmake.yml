@@ -32,6 +32,6 @@ jobs:
         image: hyiik09/testing
         tags: v1, latest
         registry: docker.io
-        dockerfile: Dockerfile.ci
+        file: ./Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
