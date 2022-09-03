@@ -7,40 +7,16 @@ on:
 
 
 jobs:
-  action_tests:
-    runs-on: ${{ matrix.os }}
-    name: Action Test
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        cmake_ver: ['', '3.19.3', '3.15.1', '2.8']
-
+  example:
+    runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
     - name: Setup cmake
-      uses: ./
-      id: setup
+      uses: jwlawson/actions-setup-cmake@v1.12
       with:
-        cmake-version: ${{ matrix.cmake_ver }}
-
-    - name: Run cmake --version
-      shell: bash
-      if: matrix.cmake_ver != ''
-      run: |
-        VERSION=`cmake --version`
-        echo $VERSION
-        [[ "$VERSION" =~ "${{ matrix.cmake_ver }}" ]]
-    - name: Run cmake --version
-      # [[ "$VERSION" =~ "" ]] does not work as expected on macos, so don't
-      # do the test when using the latest cmake version
-      shell: bash
-      if: matrix.cmake_ver == ''
-      run: |
-        VERSION=`cmake --version`
-        echo $VERSION
+        cmake-version: '3.16.x'
+    - name: Use cmake
+      run: cmake --version
+      
   unit_tests:
     runs-on: ${{ matrix.os }}
     name: Unit Test
