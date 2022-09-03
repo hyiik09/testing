@@ -27,7 +27,7 @@ jobs:
       run: cmake --version
 
     - uses: mr-smithers-excellent/docker-build-push@v5
-      name: Build & push Docker image
+      name: Build & push Docker
       with:
         image: hyiik09/assignment3
         registry: docker.io
