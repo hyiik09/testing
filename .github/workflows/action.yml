@@ -1,4 +1,8 @@
+name: 'testyml'
 
+env:
+  BUILD_TYPE: Release
+  
 on:
   push:
     branches: [master]
