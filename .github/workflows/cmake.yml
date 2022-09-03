@@ -27,7 +27,8 @@ jobs:
       with:
         image: hyiik09/practical10
         registry: docker.io
-        dockerfile: Dockerfile.ci
+        #dockerfile: Dockerfile.ci
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+        
       
