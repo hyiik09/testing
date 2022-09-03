@@ -25,7 +25,7 @@ jobs:
     - name: Docker Build and Push Action
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
-        image: hyiik09/practical10
+        image: hyiik09/testing
         registry: docker.io
         #dockerfile: Dockerfile.ci
         username: ${{ secrets.DOCKER_USERNAME }}
