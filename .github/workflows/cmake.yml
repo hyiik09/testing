@@ -1,0 +1,32 @@
+name: CMake
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Setup cmake
+      uses: jwlawson/actions-setup-cmake@v1.12
+      with:
+        cmake-version: '3.16.x'
+    - name: Use cmake
+      run: cmake --version
+      
+    - name: Docker Build and Push Action
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+        image: hyiik09/practical10
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+      
